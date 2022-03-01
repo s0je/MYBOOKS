@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+
+.container{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    width: 70%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.tabla{
+    border: 1px solid black;
+    width: 80%;
+    border-radius: 15px;
+    background-color: rgba(60, 221, 68, 0.986);
+}
+
+.tabla td{
+    width: 50%;
+}
+
+.datos{
+    
+    padding: 20px;
+    color: black;
+    border-radius: 15px 0px 0px 15px;
+    font-size: 0.8em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: large;
+    border-right: 2px solid black;
+}
+
+label{
+    margin-top: 10px;
+    margin-right: 5px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+input{
+    outline: none;
+    border: 0;
+    width: 160px;
+    height: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.field{
+    border: solid 1px #ccc;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.info{
+    text-align: center;
+}
+
+.title{
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px gray;
+}
+
+.foto{
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.center-content{
+    margin-top: 10px;
+    text-align: center;
+    outline: none;
+    border: solid 1px #ccc;
+    width: 160px;
+    height: 40px;
+    font-size: medium;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+}
+form{
+    width: 50%;
+    height: 370px;
+    margin: 0;
+    padding: 10px;
+    color: black;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.header {
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}

@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="main">
+        <table class="tabla">
+            <tr>
+                <td class="datos">
+                    <div class="cabecera">
+                        <img class="foto" src="{{perfil.url}}">
+                        <p class="title">{{perfil.nombre}} {{perfil.apellido}}</p>
+                    </div>
+                    <div class="info">
+                        <div>
+                            <label>Nombre</label>
+                            <input type="text" value="{{perfil.nombre}}">
+                        </div>
+                        <div>
+                            <label>Apellido</label>
+                            <input type="text" value="{{perfil.apellido}}">
+                        </div>
+                        <div>
+                            <label>Email</label>&nbsp;&nbsp;&nbsp;
+                            <input type="email" value="{{perfil.email}}">
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div  class="formulario">
+                    <div class="header">
+                        <p>Editar datos</p>
+                    </div>
+                    <form>
+                        <div>
+                            <label for="nameImput">Nombre </label>
+                            <input type="text" class="field" aria-describedby="Nombre" #imputNombre>
+                        </div>
+                        <div>
+                            <label for="surnameImput">Apellido </label>
+                            <input type="text" class="field" aria-describedby="Apellido" #imputApellido>
+                        </div>
+                        <div>
+                            <label for="exampleInputEmail1">Email </label>
+                            <input type="email" class="field" aria-describedby="emailHelp" #imputEmail>
+                        </div>
+                        <div>
+                            <label for="urlImput">Url </label>
+                            <input type="text" class="field" aria-describedby="Url" #imputUrl>
+                        </div>
+                        <div>
+                            <label for="inputPassword1">Password</label>
+                            <input type="password" class="field" #imputPassword>
+                        </div>
+                        &nbsp;<button type="submit" (click)=enviar(imputNombre.value,imputApellido.value,imputEmail.value,imputUrl.value,imputPassword.value) class="center-content">Submit</button>
+                    </form>
+                </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

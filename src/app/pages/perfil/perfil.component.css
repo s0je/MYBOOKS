@@ -91,8 +91,9 @@ input{
     padding: 10px;
 }
 form{
-    width: 50%;
+    width: 200px;
     height: 370px;
+    margin: 0 auto;
     margin: 0;
     padding: 10px;
     color: black;

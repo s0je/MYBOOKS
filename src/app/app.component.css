@@ -8,7 +8,7 @@
 }
 .container{
     width: 100%;
-   height: 100vh;
+   height: 120vh;
    background: url('/src/assets/img/Library.jpg') no-repeat;
    background-size: cover;
    color: white;
@@ -20,6 +20,9 @@
     display: flex;
     justify-content: center;
 }
+
+
+
 
 h1{
     font-family: "Roboto";

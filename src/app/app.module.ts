@@ -10,6 +10,8 @@ import { FormularioRegistroComponent } from './component/formulario-registro/for
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { FormsModule } from '@angular/forms';
+import { LibrosComponent } from './pages/libros/libros.component';
+import { RefPipePipe } from './pipes/ref-pipe.pipe';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     FormularioRegistroComponent,
     RegistroComponent,
     PerfilComponent,
+    LibrosComponent,
+    RefPipePipe,
 
   ],
   imports: [

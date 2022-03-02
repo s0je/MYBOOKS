@@ -1,0 +1,41 @@
+<section class="contenedor">
+    <div *ngIf="libros.length === 0; else mostrar">
+        <h1>No hay libros disponibles</h1>
+    </div>
+    <ng-template #mostrar>
+        <div *ngFor="let book of libros; let e = even; let o = odd " class="card">
+            <div class="card__cabecera">
+                <img src="{{book.photo}}">
+                <h4>{{book.titulo}}</h4>
+                <h6>{{book.autor}}</h6>
+            </div>
+            <hr>
+            <div class="card__cuerpo">
+                <ul>
+                    <li>Genero: {{book.tipoLibro}}</li>
+                    <li>Precio: {{book.precio}} €</li>
+                    <li>{{book.id_libro | refPipe}}</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="card__footer">
+                <button [ngClass]="{even:e,odd:o}"> Comprar</button>
+            </div>
+        </div>
+    </ng-template>
+    <div class="formulario">
+        <form>
+            <p>Id del Libro:</p> <input type="number" name="id_libro" #idlibro>
+            <p>Id del Usuario:</p> <input type="number" name="id_usuario" #iduser>
+            <p>Titulo:</p> <input type="text" name="titulo" #titulo>
+            <p>Autor:</p><input type="text" name="autor" #autor>
+            <p>Genero:</p><input type="text" name="tipoLibro" #tipolibro>
+            <p>Precio:</p><input type="number" name="precio" #precio>
+            <p>Foto:</p><input type="text" name="url" #url>
+            <div>
+                <input class="boton" type="submit" (click)=enviar(idlibro.value,iduser.value,titulo.value,autor.value,tipolibro.value,precio.value,url.value) value="Enviar">
+                <input class="boton" type="reset" value="Borrar">
+            </div>
+          </form>
+    </div>
+</section>

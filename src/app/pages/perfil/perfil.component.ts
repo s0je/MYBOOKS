@@ -9,7 +9,7 @@ import { User } from 'src/app/models/user';
 export class PerfilComponent implements OnInit {
 
   public perfil: User;
-  profile:string = "assets/img/profile.jpg";
+  public profile:string = "assets/img/profile.jpg";
 
   constructor() { 
 

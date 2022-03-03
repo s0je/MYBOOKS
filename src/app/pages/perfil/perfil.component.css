@@ -2,7 +2,7 @@
 
 
 .container{
-    height: auto;
+    height: 550px;
     width: 100%;
     display: flex;
     justify-content: center;

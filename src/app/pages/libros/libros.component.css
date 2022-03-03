@@ -5,13 +5,21 @@
     box-sizing: border-box;
 }
 
+.padre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+
 .contenedor {
     display: flex;
     flex-direction: row;
     gap: 50px;
-    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 5px;
     
 }
 
@@ -22,6 +30,7 @@
     box-shadow: 2px 2px 5px rgba(160, 158, 158, 0.692);
     border-radius: 25px;
     margin-top: 30px;
+    margin-bottom: 30px;
     background-color: white;
     color: black;
 }
@@ -91,11 +100,12 @@ hr{
 
 .formulario {
     width: auto;
-    height: 485px;
+    height: 520px;
     padding: 20px;
     box-shadow: 2px 2px 5px rgba(160, 158, 158, 0.692);
     border-radius: 25px;
     margin-top: 30px;
+    margin-bottom: 30px;
     background-color: white;
     color: black;
 }
@@ -117,4 +127,18 @@ hr{
     width: 90px;
     height: 30px;
     background-color: rgba(165, 165, 223, 0.74);
+    color: white;
+    font-weight: bold;
+    text-shadow: 5px 5px grey;
 }
+
+.eliminar {
+    position:absolute;
+    background-color: rgba(10, 10, 10, 0.507);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: auto;
+    margin: 10px;
+    border: transparent;
+  }

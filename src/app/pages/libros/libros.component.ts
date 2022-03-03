@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServicioService} from 'src/app/shared/servicio.service';
 import { Libro } from 'src/app/models/libro';
 
 @Component({
@@ -8,23 +9,59 @@ import { Libro } from 'src/app/models/libro';
 })
 export class LibrosComponent implements OnInit {
 
-  public libros: Libro[];
+  
 
-  constructor() {
-    
-        // this.libros = []
-
-    this.libros = [ 
-      new Libro (1, 1, "Los pilares de la tierra", "Ciencia ficcion", "Ken Follett", 20, "https://images-na.ssl-images-amazon.com/images/I/91+I2lzZ4JL.jpg"),
-      new Libro (2, 1,"El Hobbit", "Fantasia", "JRR Tolkien", 15, "https://images-na.ssl-images-amazon.com/images/I/91v16gReBcL.jpg"),
-      new Libro (3,1,"La estrella de los Elfos", "Fantasía", "Margaret Weis y Tracy Hickman", 10, "https://images-na.ssl-images-amazon.com/images/I/71m6ufQppFL.jpg")]
-  }
+  constructor( public librosService: ServicioService) {}
+  
+  // public libros:any;
+  public libros:Libro [];
 
   enviar(id_libro:number,id_usuario:number, titulo:string, tipoLibro:string,autor:string,precio:number,photo:string)
   { 
+          
           let libro = new Libro (id_libro, id_usuario, titulo, tipoLibro, autor, precio, photo);
-          this.libros.push(libro);
+          this.librosService.add(libro);
 
+  }
+
+  
+
+  editar(id_libro:number,id_usuario:number, titulo:string, tipoLibro:string,autor:string,precio:number,photo:string)
+  { 
+          console.log(precio)
+          let libro = new Libro (id_libro, id_usuario, titulo, tipoLibro, autor, precio, photo);
+          this.librosService.edit(libro);
+          console.log(libro)
+
+  }
+
+  eliminar(id_libro:number)
+  {
+    console.log(id_libro)
+    let libros = this.librosService.getAll()
+    for(let i=0; i<libros.length ; i++)
+    {
+      if(libros[i].id_libro == id_libro)
+      {
+        this.librosService.delete(i)
+        console.log(i)
+      }
+    }
+  }
+
+  buscar(id:number)
+  {
+    if(id == 0)
+    {
+       this.libros = this.librosService.getAll();
+    }
+    else 
+    {
+      this.libros = [];
+      this.libros.push(this.librosService.getOne(id))
+    }   
+    console.log(this.libros)
+    return this.libros;
   }
 
   ngOnInit(): void {

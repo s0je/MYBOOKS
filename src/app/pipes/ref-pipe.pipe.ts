@@ -8,7 +8,7 @@ export class RefPipePipe implements PipeTransform {
   transform(value: number): String 
   {
     let result: string;
-    result = "Ref:"+value;
+    result = "Ref: "+value;
 
     return result;
   }

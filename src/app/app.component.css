@@ -9,6 +9,7 @@
 .container{
     width: 100%;
    height: auto;
+   max-height: 1250px;
    background: url('/src/assets/img/Library.jpg') no-repeat;
    background-size: cover;
    color: white;

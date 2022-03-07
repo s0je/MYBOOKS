@@ -10,8 +10,12 @@ import { FormularioRegistroComponent } from './component/formulario-registro/for
 import { RegistroComponent } from './pages/registro/registro.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 import { LibrosComponent } from './pages/libros/libros.component';
 import { RefPipePipe } from './pipes/ref-pipe.pipe';
+import { LoginComponent } from './pages/login/login.component';
+import { FormularioLoginComponent } from './component/formulario-login/formulario-login.component';
+
 
 
 @NgModule({
@@ -25,12 +29,15 @@ import { RefPipePipe } from './pipes/ref-pipe.pipe';
     PerfilComponent,
     LibrosComponent,
     RefPipePipe,
-
+    LoginComponent,
+    FormularioLoginComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

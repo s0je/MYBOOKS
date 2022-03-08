@@ -4,8 +4,8 @@
             <tr>
                 <td class="datos">
                     <div class="cabecera">
-                        <img class="foto" src="{{perfil.url}}">
-                        <p class="title">{{perfil.nombre}} {{perfil.apellido}}</p>
+                        <img class="foto" src="{{perfil.foto}}">
+                        <p class="title">{{perfil.nombre}} {{perfil.apellidos}}</p>
                     </div>
                     <div class="info">
                         <div>
@@ -13,12 +13,12 @@
                             <input type="text" value="{{perfil.nombre}}">
                         </div>
                         <div>
-                            <label>Apellido</label>
-                            <input type="text" value="{{perfil.apellido}}">
+                            <label>Apellidos</label>
+                            <input type="text" value="{{perfil.apellidos}}">
                         </div>
                         <div>
                             <label>Email</label>&nbsp;&nbsp;&nbsp;
-                            <input type="email" value="{{perfil.email}}">
+                            <input type="email" value="{{perfil.correo}}">
                         </div>
                     </div>
                 </td>
@@ -33,16 +33,16 @@
                             <input type="text" class="field" aria-describedby="Nombre" #imputNombre>
                         </div>
                         <div>
-                            <label for="surnameImput">Apellido </label>
+                            <label for="surnameImput">Apellidos </label>
                             <input type="text" class="field" aria-describedby="Apellido" #imputApellido>
                         </div>
                         <div>
-                            <label for="exampleInputEmail1">Email </label>
-                            <input type="email" class="field" aria-describedby="emailHelp" #imputEmail>
+                            <label for="exampleInputEmail1">Correo </label>
+                            <input type="email" value="" class="field" aria-describedby="emailHelp" #imputEmail>
                         </div>
                         <div>
-                            <label for="urlImput">Url </label>
-                            <input type="text" class="field" aria-describedby="Url" #imputUrl>
+                            <label for="urlImput">Foto </label>
+                            <input type="text" class="field" aria-describedby="Url" #imputUrl >
                         </div>
                         <div>
                             <label for="inputPassword1">Password</label>

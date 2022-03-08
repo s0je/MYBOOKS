@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { User } from '../models/user';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class UsuarioserviceService {
 
   register(usuario:User)
   {
-    return this.http.post(`${this.url}/registro`, usuario);
+    return this.http.post(this.url+"/registro", usuario);
   }
 
   login(usuario:User)

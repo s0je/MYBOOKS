@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { UsuarioserviceService } from 'src/app/shared/usuarioservice.service';
 
 @Component({
   selector: 'app-perfil',
@@ -11,21 +12,20 @@ export class PerfilComponent implements OnInit {
   public perfil: User;
   public profile:string = "assets/img/profile.jpg";
 
-  constructor() { 
-
-      this.perfil = new User ("José", "Silva", "email@cocdenotch.com", "assets/img/profile.jpg", "12345f");
+  constructor(private usuarioService:UsuarioserviceService) {
+    this.perfil = this.usuarioService.usuario[0];
   }
-
+  
   enviar(nombre:String,apellido:string,email:string,url:string,password:string)
   {
     if(nombre!='')
       this.perfil.nombre = nombre;
     if(apellido!='')
-      this.perfil.apellido = apellido;
+      this.perfil.apellidos = apellido;
     if(email!='')
-      this.perfil.email = email;
+      this.perfil.correo = email;
     if(url!='')
-      this.perfil.url = url;
+      this.perfil.foto = url;
     if(password!='')
       this.perfil.password=password;
   }

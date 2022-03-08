@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioserviceService } from 'src/app/shared/usuarioservice.service';
 import { User } from 'src/app/models/user';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-registro',
@@ -8,17 +9,39 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./formulario-registro.component.css']
 })
 export class FormularioRegistroComponent implements OnInit {
+  
+  public registroForm: FormGroup;
 
-  constructor( public usuarioService: UsuarioserviceService) { }
+  constructor( public usuarioService: UsuarioserviceService, private formBuilder: FormBuilder) 
+  {
+    this.buildform();
+    
+  }
+  
+  private buildform()
+  {
+    const minLength = 8;
+
+    this.registroForm = this.formBuilder.group({
+      nombre: [, Validators.required],
+      apellidos: [, Validators.required],
+      correo: [, [Validators.required, Validators.email]],
+      foto: [, Validators.required],
+      password: [, [Validators.required, Validators.minLength(minLength)]],
+      password2: [, [Validators.required, Validators.minLength(minLength)]]
+    })
+  }
+
+  
 
   ngOnInit(): void {
   }
 
-  registrarse(nombre:string, apellidos: string, correo: string, foto: string, password:string, password2: string)
+  registrarse()
   {
-    if(password == password2)
+    if(this.registroForm.value.password == this.registroForm.value.password2)
     {
-      let usuario = new User (0,nombre, apellidos, correo,foto, password);
+      let usuario = new User (0, this.registroForm.value.nombre,this.registroForm.value.apellidos,this.registroForm.value.correo,this.registroForm.value.foto,this.registroForm.value.password);
       console.log(usuario)
       this.usuarioService.register(usuario).subscribe((dato:any) =>
       {
@@ -33,3 +56,7 @@ export class FormularioRegistroComponent implements OnInit {
   }
 
 }
+function ConfirmedValidator(arg0: string, arg1: string): any {
+  throw new Error('Function not implemented.');
+}
+

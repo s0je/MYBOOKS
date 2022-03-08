@@ -91,15 +91,27 @@ export class LibrosComponent implements OnInit {
     
   }
 
-  buscar(id_libro:number)
+  buscar(id_libro:string)
   {
     console.log(id_libro)
     if(id_libro)
     {
       this.libros = [];
-      this.librosService.getOne(id_libro).subscribe((dato:Libro) =>
+      this.librosService.getOne(Number(id_libro)).subscribe((dato:any) =>
       {
-        this.libros.push(dato[0]);
+        // this.libros.push(dato[0]);
+        console.log(dato)
+        if(dato[0] == undefined)
+        {
+          this.libros = []
+          
+        }
+        else
+        {
+          this.libros = dato
+          
+        }
+        
       })
     }
     else 

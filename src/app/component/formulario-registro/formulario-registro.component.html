@@ -1,31 +1,31 @@
-<div class="container">
+<div class="container-fluid">
     <div class="main">
-        <form>
+        <form [formGroup]="registroForm">
             <div>
                 <label for="nameImput">Nombre </label>
-                <input type="text" class="field" aria-describedby="Nombre" #nombre>
+                <input type="text" class="field" aria-describedby="Nombre" formControlName="nombre">
             </div>
             <div>
                 <label for="surnameImput">Apellidos </label>
-                <input type="text" class="field" aria-describedby="Apellido" #apellidos>
+                <input type="text" class="field" aria-describedby="Apellido" formControlName="apellidos">
             </div>
             <div>
               <label for="exampleInputEmail1">Correo </label>
-              <input type="email" class="field" aria-describedby="emailHelp" #correo>
+              <input type="email" class="field" aria-describedby="emailHelp" formControlName="correo">
             </div>
             <div>
                 <label for="urlImput">Foto </label>
-                <input type="text" class="field" aria-describedby="Foto" #foto>
+                <input type="text" class="field" aria-describedby="Foto" formControlName="foto">
             </div>
             <div>
-              <label for="inputPassword1">Password</label>
+              <label for="inputPassword1" formControlName="password">Password</label>
               <input type="password" class="field" #password>
             </div>
             <div>
-                <label for="repeatInputPassword1">Repetir Password</label>
+                <label for="repeatInputPassword1" formControlName="password2">Repetir Password</label>
                 <input type="password" class="field" #password2>
             </div>
-            <button type="submit" (click)="registrarse(nombre.value,apellidos.value,correo.value,foto.value,password.value,password2.value)" class="center-content">Submit</button>
+            <button type="submit" (click)="registrarse()" class="center-content" [disabled]="registroForm.invalid">Submit</button>
           </form>
     </div>
 </div>

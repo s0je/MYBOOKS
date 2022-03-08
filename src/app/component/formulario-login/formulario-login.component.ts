@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UsuarioserviceService } from 'src/app/shared/usuarioservice.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-login',
@@ -11,23 +13,39 @@ import { UsuarioserviceService } from 'src/app/shared/usuarioservice.service';
 export class FormularioLoginComponent implements OnInit {
 
   public usuario: User
-  constructor(private usuarioService: UsuarioserviceService, private router: Router) { }
+  public loginForm:FormGroup
 
+  constructor(private usuarioService: UsuarioserviceService, private router: Router, private formBuilder: FormBuilder) { 
+    this.buildForm();
+  }
+  private buildForm()
+  {
+    this.loginForm = this.formBuilder.group(
+      {
+        correo: [ , [Validators.required, Validators.email]],
+        password: [,Validators.required]
+      }
+    );
+  }
   ngOnInit(): void {
   }
 
-  iniciarSesion(correo:string, password:string)
+  iniciarSesion()
   {
-    if(correo && password)
-    {
-      let usuario = new User(0,'','',correo,'',password);
-      console.log(usuario);
-      this.usuarioService.login(usuario).subscribe((data:any) =>
+
+      console.log(this.loginForm)
+      this.usuario = new User(0,'','',this.loginForm.value.correo,'',this.loginForm.value.password);
+      this.usuarioService.login(this.usuario).subscribe((data:any) =>
       {
         this.usuarioService.estado = true;
         this.usuarioService.usuario = data;
         this.router.navigateByUrl("/home");
       });
-    }
+    
+  }
+
+  onSubmit(form:NgForm)
+  {
+
   }
 }

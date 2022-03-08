@@ -19,6 +19,7 @@
 .tabla{
     border: 1px solid black;
     width: 80%;
+    height: 550px;
     border-radius: 15px;
     background-color: rgba(60, 221, 68, 0.986);
 }
@@ -37,6 +38,7 @@
     margin-bottom: 15px;
     font-size: large;
     border-right: 2px solid black;
+    text-align: center;
 }
 
 label{
@@ -50,9 +52,9 @@ input{
     outline: none;
     border: 0;
     width: 160px;
-    height: 20px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    height: 25px;
+    margin-bottom: 5px;
+    margin-left: 5px;
     text-align: center;
     font-weight: bold;
 }
@@ -102,6 +104,7 @@ form{
     font-size: 0.8em;
     margin-top: 15px;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .formulario{
@@ -109,6 +112,7 @@ form{
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    text-align: center;
     flex-wrap: wrap;
     width: 100%;
 }

@@ -2,7 +2,7 @@
 
 
 .container{
-    height: 550px;
+    height: 850px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -76,6 +76,7 @@ input{
 .foto{
     border-radius: 50%;
     border: 2px solid white;
+    width: 100%;
 }
 .center-content{
     margin-top: 10px;

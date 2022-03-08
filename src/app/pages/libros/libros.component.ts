@@ -16,49 +16,100 @@ export class LibrosComponent implements OnInit {
   // public libros:any;
   public libros:Libro [];
 
-  enviar(id_libro:number,id_usuario:number, titulo:string, tipoLibro:string,autor:string,precio:number,photo:string)
+  enviar(id_usuario:number, titulo:string, tipo:string,autor:string,precio:number,foto:string)
   { 
           
-          let libro = new Libro (id_libro, id_usuario, titulo, tipoLibro, autor, precio, photo);
-          this.librosService.add(libro);
-
+          let libro = new Libro (0,id_usuario, titulo, tipo, autor, precio, foto);
+          this.librosService.add(libro).subscribe((dato:any)=>
+          {
+            console.log(dato);
+          })
   }
 
-  
-
-  editar(id_libro:number,id_usuario:number, titulo:string, tipoLibro:string,autor:string,precio:number,photo:string)
+  editar(id_libro:number,idUsuario:number, title:string, type:string,author:string,price:number,photo:string)
   { 
-          console.log(precio)
-          let libro = new Libro (id_libro, id_usuario, titulo, tipoLibro, autor, precio, photo);
-          this.librosService.edit(libro);
-          console.log(libro)
+          let id_usuario:any;
+          let titulo:any;
+          let tipo:any;
+          let autor:any;
+          let precio:any;
+          let foto:any;
+          if(idUsuario)
+          {
+            id_usuario = idUsuario
+          }
+          else{
+            id_usuario = null
+          }
+          if(title == '')
+            titulo = null
+          else
+          {
+            titulo = title
+          }
+          if(type == '')
+            tipo =null;
+          else
+          {
+            tipo = type
+          }
+          if(author == '')
+            autor = null;
+          else
+          {
+            autor = author;
+          }
+          if(price)
+          {
+            precio = price
+          }
+          else
+          {
+            precio = null
+          }
+          if(photo == '')
+            foto = null
+          else
+          {
+            foto = photo;
+          }
 
+          let libro = new Libro (id_libro, id_usuario, titulo, tipo, autor, precio, foto);
+          this.librosService.edit(libro).subscribe((dato:any) =>
+          {
+            console.log(dato)
+          });
+          
   }
 
   eliminar(id_libro:number)
   {
-    console.log(id_libro)
-    let libros = this.librosService.getAll()
-    for(let i=0; i<libros.length ; i++)
+    this.librosService.delete(id_libro).subscribe((dato:any) =>
     {
-      if(libros[i].id_libro == id_libro)
-      {
-        this.librosService.delete(i)
-        console.log(i)
-      }
-    }
+      console.log(dato)
+    })
+    
   }
 
-  buscar(id:number)
+  buscar(id_libro:number)
   {
-    if(id == 0)
+    console.log(id_libro)
+    if(id_libro)
     {
-       this.libros = this.librosService.getAll();
+      this.libros = [];
+      this.librosService.getOne(id_libro).subscribe((dato:Libro) =>
+      {
+        this.libros.push(dato[0]);
+      })
     }
     else 
     {
-      this.libros = [];
-      this.libros.push(this.librosService.getOne(id))
+      
+      this.librosService.getAll().subscribe((dato:Libro []) =>
+       {
+          this.libros = dato;
+          console.log(dato);
+       });
     }   
     console.log(this.libros)
     return this.libros;

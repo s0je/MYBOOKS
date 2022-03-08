@@ -18,9 +18,12 @@ export class FormularioRegistroComponent implements OnInit {
   {
     if(password == password2)
     {
-      let usuario = new User (nombre, apellidos, correo,foto, password);
-      this.usuarioService.register(usuario);
-      console.log(this.usuarioService.usuario)
+      let usuario = new User (0,nombre, apellidos, correo,foto, password);
+      console.log(usuario)
+      this.usuarioService.register(usuario).subscribe((dato:any) =>
+      {
+        console.log(dato)
+      });
     }
     else
     {

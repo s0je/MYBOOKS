@@ -3,29 +3,29 @@
         <form>
             <div>
                 <label for="nameImput">Nombre </label>
-                <input type="text" class="field" aria-describedby="Nombre">
+                <input type="text" class="field" aria-describedby="Nombre" #nombre>
             </div>
             <div>
-                <label for="surnameImput">Apellido </label>
-                <input type="text" class="field" aria-describedby="Apellido">
+                <label for="surnameImput">Apellidos </label>
+                <input type="text" class="field" aria-describedby="Apellido" #apellidos>
             </div>
             <div>
-              <label for="exampleInputEmail1">Email </label>
-              <input type="email" class="field" aria-describedby="emailHelp">
+              <label for="exampleInputEmail1">Correo </label>
+              <input type="email" class="field" aria-describedby="emailHelp" #correo>
             </div>
             <div>
-                <label for="urlImput">Url </label>
-                <input type="text" class="field" aria-describedby="Url">
+                <label for="urlImput">Foto </label>
+                <input type="text" class="field" aria-describedby="Foto" #foto>
             </div>
             <div>
               <label for="inputPassword1">Password</label>
-              <input type="password" class="field">
+              <input type="password" class="field" #password>
             </div>
             <div>
                 <label for="repeatInputPassword1">Repetir Password</label>
-                <input type="password" class="field">
+                <input type="password" class="field" #password2>
             </div>
-            <button type="submit" class="center-content">Submit</button>
+            <button type="submit" (click)="registrarse(nombre.value,apellidos.value,correo.value,foto.value,password.value,password2.value)" class="center-content">Submit</button>
           </form>
     </div>
 </div>

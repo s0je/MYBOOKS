@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioserviceService } from 'src/app/shared/usuarioservice.service';
 import { User } from 'src/app/models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario-registro',
@@ -54,9 +55,8 @@ export class FormularioRegistroComponent implements OnInit {
     }
     
   }
+  onSubmit(form:NgForm)
+  {
 
+  }
 }
-function ConfirmedValidator(arg0: string, arg1: string): any {
-  throw new Error('Function not implemented.');
-}
-

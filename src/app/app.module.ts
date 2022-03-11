@@ -15,6 +15,7 @@ import { LibrosComponent } from './pages/libros/libros.component';
 import { RefPipePipe } from './pipes/ref-pipe.pipe';
 import { LoginComponent } from './pages/login/login.component';
 import { FormularioLoginComponent } from './component/formulario-login/formulario-login.component';
+import { TarjetaComponent } from './component/tarjeta/tarjeta.component';
 
 
 
@@ -31,6 +32,7 @@ import { FormularioLoginComponent } from './component/formulario-login/formulari
     RefPipePipe,
     LoginComponent,
     FormularioLoginComponent,
+    TarjetaComponent,
     
   ],
   imports: [

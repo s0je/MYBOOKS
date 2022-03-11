@@ -1,64 +1,53 @@
-<div style="border: 5px solid black; height: 850px; display: flex; flex-direction: column; justify-content: center; align-items: center; flex-wrap: wrap;" >
-    <div class="buscador">
-        <input type="number" name="buscar" #inputBuscar>
-        <input class="boton" type="reset" value="Mostrar" (click)="buscar(inputBuscar.value)" >
+<div class="container-fluid" style="height: auto;">
+    <div class="buscador" style="display: flex; justify-content: center;">
+        <input class="form-control" style="width: 150px;" type="number" name="buscar" (keyup)="buscar(inputBuscar.value)" #inputBuscar>
+        <input class="btn btn-primary mb" type="reset" value="Mostrar" (click)="buscar(inputBuscar.value)" >
     </div>
-    <section class="contenedor">
-        <div *ngIf="libros.length === 0; else mostrar">
-            <h1>No hay libros disponibles</h1>
-        </div>
-        <ng-template #mostrar>
-            <div *ngFor="let book of libros;let i = index; let e = even; let o = odd " class="libros">
-                <div class="cabecera">
-                    <button class="eliminar"  (click)="eliminar(book.id_libro)">x</button>
-                    <img src="{{book.foto}}">
-                    <h4>{{book.titulo}}</h4>
-                    <h6>{{book.autor}}</h6>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+            <section class="contenedor">
+                <div *ngIf="libros.length === 0; else mostrar">
+                    <h1>No hay libros disponibles</h1>
                 </div>
-                <hr>
-                <div class="cuerpo">
-                    <ul>
-                        <li>Tipo: {{book.tipo}}</li>
-                        <li>Precio: {{book.precio}} €</li>
-                        <li>{{book.id_libro | refPipe}}</li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="footer">
-                    <button [ngClass]="{even:e,odd:o}"> Comprar</button>
-                </div>
+                <ng-template #mostrar>
+                    <app-tarjeta [Libros] = 'libros' (eventoEliminar)="eliminar($event)"></app-tarjeta>
+                </ng-template> 
+            </section>
+          </div>
+          <div class="col" style="display: flex; gap: 20px;">
+            <div class="formulario">
+                <form>
+                    <h3 style="margin-bottom: 10px;">Agregar Libro</h3>
+                    <p>Id del Usuario:</p> <input class="form-control" type="number" name="id_usuario"  #iduser>
+                    <p>Titulo:</p> <input class="form-control" type="text" name="titulo" #titulo>
+                    <p>Tipo:</p><input class="form-control" type="text" name="tipoLibro" #tipolibro>
+                    <p>Autor:</p><input class="form-control" type="text" name="autor" #autor>
+                    <p>Precio:</p><input class="form-control" type="number" name="precio"  #precio>
+                    <p>Foto:</p><input class="form-control" type="text" name="url" #url>
+                    <div>
+                        <input class="boton" type="submit" (click)=enviar(iduser.value,titulo.value,tipolibro.value,autor.value,precio.value,url.value) value="Enviar">
+                        <input class="boton" type="reset" value="Borrar">
+                    </div>
+                </form>
             </div>
-        </ng-template>
-        <div class="formulario">
-            <form>
-                <h3 style="margin-bottom: 10px;">Agregar Libro</h3>
-                <p>Id del Usuario:</p> <input type="number" name="id_usuario"  #iduser>
-                <p>Titulo:</p> <input type="text" name="titulo" #titulo>
-                <p>Tipo:</p><input type="text" name="tipoLibro" #tipolibro>
-                <p>Autor:</p><input type="text" name="autor" #autor>
-                <p>Precio:</p><input type="number" name="precio"  #precio>
-                <p>Foto:</p><input type="text" name="url" #url>
-                <div>
-                    <input class="boton" type="submit" (click)=enviar(iduser.value,titulo.value,tipolibro.value,autor.value,precio.value,url.value) value="Enviar">
-                    <input class="boton" type="reset" value="Borrar">
-                </div>
-            </form>
+            <div class="formulario">
+                <form>
+                    <h3 style="margin-bottom: 10px;">Modificar Libro</h3>
+                    <p>Id del Libro:</p> <input class="form-control" type="number" name="id_libro" #inputIdLibro>
+                    <p>Id del Usuario:</p> <input class="form-control" type="number" name="id_usuario" value="NaN" #inputIdUser>
+                    <p>Titulo:</p> <input class="form-control" type="text" name="titulo" #inputTitulo>
+                    <p>Tipo:</p><input class="form-control" type="text" name="tipoLibro" #inputTipolibro>
+                    <p>Autor:</p><input class="form-control" type="text" name="autor" #inputAutor>
+                    <p>Precio:</p><input class="form-control" type="number" name="precio" value="NaN" #inputPrecio>
+                    <p>Foto:</p><input class="form-control" type="text" name="url" #inputPhoto>
+                    <div>
+                        <input class="boton" type="submit" (click)=editar(inputIdLibro.value,inputIdUser.value,inputTitulo.value,inputTipolibro.value,inputAutor.value,inputPrecio.value,inputPhoto.value) value="Enviar">
+                        <input class="boton" type="reset" value="Borrar">
+                    </div>
+                </form>
+            </div> 
+          </div>
         </div>
-        <div class="formulario">
-            <form>
-                <h3 style="margin-bottom: 10px;">Modificar Libro</h3>
-                <p>Id del Libro:</p> <input type="number" name="id_libro" #inputIdLibro>
-                <p>Id del Usuario:</p> <input type="number" name="id_usuario" value="NaN" #inputIdUser>
-                <p>Titulo:</p> <input type="text" name="titulo" #inputTitulo>
-                <p>Tipo:</p><input type="text" name="tipoLibro" #inputTipolibro>
-                <p>Autor:</p><input type="text" name="autor" #inputAutor>
-                <p>Precio:</p><input type="number" name="precio" value="NaN" #inputPrecio>
-                <p>Foto:</p><input type="text" name="url" #inputPhoto>
-                <div>
-                    <input class="boton" type="submit" (click)=editar(inputIdLibro.value,inputIdUser.value,inputTitulo.value,inputTipolibro.value,inputAutor.value,inputPrecio.value,inputPhoto.value) value="Enviar">
-                    <input class="boton" type="reset" value="Borrar">
-                </div>
-            </form>
-        </div>  
-    </section>
+    </div>
 </div>

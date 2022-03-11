@@ -3,29 +3,47 @@
         <form [formGroup]="registroForm">
             <div>
                 <label for="nameImput">Nombre </label>
-                <input type="text" class="field" aria-describedby="Nombre" formControlName="nombre">
+                <input type="text" class="form-control" aria-describedby="Nombre" formControlName="nombre" [ngClass]="{'is-invalid': (registroForm.get('nombre').dirty || registroForm.get('nombre').touched) && registroForm.get('nombre').invalid}">
+                <div *ngIf="registroForm.get('nombre').invalid" class="invalid-feedback">
+                    <p *ngIf="registroForm.get('nombre').errors.required">Campo obligatorio</p>
+                </div>
             </div>
             <div>
                 <label for="surnameImput">Apellidos </label>
-                <input type="text" class="field" aria-describedby="Apellido" formControlName="apellidos">
+                <input type="text" class="form-control" aria-describedby="Apellido" formControlName="apellidos" [ngClass]="{'is-invalid': (registroForm.get('apellidos').dirty || registroForm.get('apellidos').touched) && registroForm.get('apellidos').invalid}">
+                <div *ngIf="registroForm.get('apellidos').invalid" class="invalid-feedback">
+                    <p *ngIf="registroForm.get('apellidos').errors.required">Campo obligatorio</p>
+                </div>
             </div>
             <div>
               <label for="exampleInputEmail1">Correo </label>
-              <input type="email" class="field" aria-describedby="emailHelp" formControlName="correo">
+              <input type="email" class="form-control" aria-describedby="emailHelp" formControlName="correo" [ngClass]="{'is-invalid': (registroForm.get('correo').dirty || registroForm.get('correo').touched) && registroForm.get('correo').invalid}">
+              <div *ngIf="registroForm.get('correo').invalid" class="invalid-feedback">
+                <p *ngIf="registroForm.get('correo').errors.required">Campo obligatorio</p>
+              </div>
             </div>
             <div>
-                <label for="urlImput">Foto </label>
-                <input type="text" class="field" aria-describedby="Foto" formControlName="foto">
+                <label for="fotoImput">Foto </label>
+                <input type="text" class="form-control" aria-describedby="Foto" formControlName="foto" [ngClass]="{'is-invalid': (registroForm.get('foto').dirty || registroForm.get('foto').touched) && registroForm.get('foto').invalid}">
+                <div *ngIf="registroForm.get('foto').invalid" class="invalid-feedback">
+                    <p *ngIf="registroForm.get('foto').errors.required">Campo obligatorio</p>
+                </div>
             </div>
             <div>
-              <label for="inputPassword1" formControlName="password">Password</label>
-              <input type="password" class="field" #password>
+                <label for="inputPassword1" formControlName="password" formControlName="foto" [ngClass]="{'is-invalid': (registroForm.get('password').dirty || registroForm.get('password').touched) && registroForm.get('password').invalid}">Password</label>
+                <input type="password" class="form-control" #password>
+                <div *ngIf="registroForm.get('password').invalid" class="invalid-feedback">
+                    <p *ngIf="registroForm.get('password').errors.required">Campo obligatorio</p>
+                </div>
             </div>
             <div>
-                <label for="repeatInputPassword1" formControlName="password2">Repetir Password</label>
-                <input type="password" class="field" #password2>
+                <label for="repeatInputPassword1" formControlName="password2" [ngClass]="{'is-invalid': (registroForm.get('password2').dirty || registroForm.get('password2').touched) && registroForm.get('password2').invalid}">Repetir Password</label>
+                <input type="password" class="form-control" #password2>
+                <div *ngIf="registroForm.get('password2').invalid" class="invalid-feedback">
+                    <p *ngIf="registroForm.get('password2').errors.required">Campo obligatorio</p>
+                </div>
             </div>
-            <button type="submit" (click)="registrarse()" class="center-content" [disabled]="registroForm.invalid">Submit</button>
+            <button type="reset" (click)="registrarse()" class="center-content" [disabled]="registroForm.invalid">Submit</button>
           </form>
     </div>
 </div>

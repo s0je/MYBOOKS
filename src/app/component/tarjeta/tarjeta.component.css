@@ -1,0 +1,66 @@
+.odd{
+    background-color: blue;
+    padding: 8px 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.even{
+    background-color: rgb(60, 255, 0);
+    padding: 8px 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    margin: 10px;
+    border-radius: 10px;
+}
+.eliminar {
+    position:absolute;
+    background-color: rgba(10, 10, 10, 0.507);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: auto;
+    margin: 10px;
+    border: transparent;
+  }
+  img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 25px 25px 0px 0px;
+    box-shadow: 2px 2p 5px rgba(153, 153, 153, 0.247);
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.list-group-item
+{
+    font-size: small;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+ul li{
+    list-style:none;
+    text-align: left;
+    padding-left: 15px;
+}
+
+
+.footer{
+    display: flex;
+    justify-content: center;
+}

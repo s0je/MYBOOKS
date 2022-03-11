@@ -9,8 +9,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 
 const routes: Routes = [
   
-  {path: "registro", component: RegistroComponent, children: [
-                                                              {path:'', component: FormularioRegistroComponent}]},
+  {path: "registro", component: RegistroComponent},
   {path: "home", component:HomeComponent},
   {path: "perfil", component:PerfilComponent},
   {path: "libros", component: LibrosComponent},

@@ -1,0 +1,18 @@
+<div class="container-fluid" style="display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap;">
+    <div class="card" style="width: 18rem; border-radius: 25px; box-shadow: 2px 2px 5px rgba(160, 158, 158, 0.692); margin: 10px;"  *ngFor="let book of Libros;let i = index; let e = even; let o = odd ">
+        <button class="eliminar"  (click)="eliminar(book.id_libro)">x</button>
+        <img src="{{book.foto}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{book.titulo}}</h5>
+          <p class="card-text">{{book.autor}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Tipo: {{book.tipo}}</li>
+          <li class="list-group-item">Precio: {{book.precio}} €</li>
+          <li class="list-group-item">{{book.id_libro | refPipe}}</li>
+        </ul>
+        <div class="card-body">
+            <button [ngClass]="{even:e,odd:o}"> Comprar</button>
+        </div>
+      </div>
+</div>

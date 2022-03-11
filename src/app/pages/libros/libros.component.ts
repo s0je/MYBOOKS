@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ServicioService} from 'src/app/shared/servicio.service';
 import { Libro } from 'src/app/models/libro';
+import { UsuarioserviceService } from 'src/app/shared/usuarioservice.service';
 
 @Component({
   selector: 'app-libros',
@@ -11,7 +12,7 @@ export class LibrosComponent implements OnInit {
 
   
 
-  constructor( public librosService: ServicioService) {}
+  constructor( public librosService: ServicioService, private usuarioService: UsuarioserviceService) {}
   
   // public libros:any;
   public libros:Libro [];
